@@ -4,10 +4,10 @@ const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 const money = n => new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);
 const num = n => new Intl.NumberFormat('vi-VN').format(Number(n)||0);
 const today = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
-const DEFAULT_API_URL = 'https://script.google.com/macros/s/AKfycbxvs1oxv90mRt_452rm-laupYHK9Is4TSZkmEoMcxgFJcsVlEjtC4JKwKxAOebdqHgv/exec';
-const apiUrl = () => localStorage.getItem('vfs-api-url') || DEFAULT_API_URL;
+const DEFAULT_API_URL = 'https://script.google.com/macros/s/AKfycbw2CG-wSU1PrgUcZFlqYQFQ_ztuzkMb6bcq1D8D4uKSV9rZfSD6q0V1R12oRQi_Wb7kqA/exec';
+const apiUrl = () => DEFAULT_API_URL;
 const state = {token:sessionStorage.getItem('vfs-token')||'',user:JSON.parse(sessionStorage.getItem('vfs-user')||'null'),page:'dashboard',items:[],inbound:[],outbound:[],users:[],dashboard:{},query:'',lowOnly:false,theme:localStorage.getItem('vfs-theme')||'light',settingsTab:'connection'};
-const pages={dashboard:'Tổng quan',catalog:'Danh mục hàng hóa',inbound:'Nhập kho',outbound:'Xuất kho',stock:'Tồn kho',accounts:'Quản lý tài khoản',excel:'Nhập / Xuất Excel',settings:'Cài đặt'};
+const pages={v2balances:'Tồn kho theo kho',v2warehouses:'Quản lý kho',v2transfers:'Điều chuyển kho',v2counts:'Kiểm kê',v2audit:'Nhật ký V2',dashboard:'Tổng quan',catalog:'Danh mục hàng hóa',inbound:'Nhập kho',outbound:'Xuất kho',stock:'Tồn kho',accounts:'Quản lý tài khoản',excel:'Nhập / Xuất Excel',settings:'Cài đặt'};
 const notify=(m,bad=false)=>{const n=$('#toast');n.textContent=m;n.className='toast show'+(bad?' error':'');setTimeout(()=>n.className='toast',4500)};
 async function request(action,data={}){
   if(!apiUrl()) throw Error('Chưa cấu hình URL Apps Script. Mở Cài đặt để nhập URL Web App.');
