@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>VIFUSOFT · Quản lý kho V2 Beta</title><link rel="stylesheet" href="v2-beta.css"><script defer src="v2-beta.js"></script></head>
+<body>
+<header class="top"><div class="brand"><img src="vifusoft-mark.png" alt="VIFUSOFT"><div><strong>VIFUSOFT</strong><span>QUẢN LÝ KHO · V2 BETA</span></div></div><div class="top-actions"><span id="who" class="muted"></span><button id="logoutBtn" class="secondary" hidden>Đăng xuất</button></div></header>
+<main>
+<section id="loginPanel" class="panel login"><h1>Đăng nhập bản thử nghiệm</h1><p class="muted">Chỉ sử dụng tài khoản và Google Sheets thử nghiệm. Không nhập tài khoản sản xuất V1.</p><form id="loginForm" class="form-grid"><label>Mã đơn vị thử nghiệm<input name="tenantId" placeholder="V2TEST01" required autocomplete="organization"></label><label>Tên đăng nhập<input name="username" required autocomplete="username"></label><label class="full">Mật khẩu<input name="password" type="password" required autocomplete="current-password"></label><label class="full">URL Apps Script V2 <input id="apiUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec" required></label><p class="full small muted">URL được lưu trên trình duyệt này. Ứng dụng không điền sẵn URL sản xuất.</p><button class="primary full" type="submit">Đăng nhập</button><p id="loginMessage" class="full error" role="alert"></p></form></section>
+<section id="appPanel" hidden>
+<div class="notice"><strong>Bản thử nghiệm V2</strong><span>Chỉ dùng dữ liệu giả lập hoặc bản sao workbook. Các luồng nhập/xuất bán hàng và sao lưu tự động vẫn đang hoàn thiện.</span></div>
+<nav id="tabs" class="tabs"><button data-tab="balances" class="active">Tồn kho</button><button data-tab="inbound">Nhập kho</button><button data-tab="outbound">Xuất kho / Bán</button><button data-tab="warehouses">Kho</button><button data-tab="transfers">Điều chuyển</button><button data-tab="counts">Kiểm kê</button><button data-tab="users">Tài khoản thử</button><button data-tab="audit">Nhật ký</button><button data-tab="feedback">Góp ý / lỗi</button></nav>
+<div class="toolbar"><div><h1 id="pageTitle">Tồn kho theo kho</h1><p id="pageSub" class="muted">Số dư và giá vốn theo phạm vi được cấp.</p></div><div class="toolbar-actions"><button id="initializeBtn" class="secondary" hidden>Khởi tạo V2</button><button id="refreshBtn" class="secondary">Làm mới</button></div></div>
+<div id="noticeArea"></div><section id="view" class="panel"></section>
+</section>
+</main><div id="toast" role="status" class="toast"></div>
+</body></html>
