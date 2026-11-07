@@ -173,3 +173,18 @@ body.dark .item-entry-row { background:#142638; }
 body.dark .item-row-remove { background:#472a32; border-color:#70404a; color:#ffb5bc; }
 @media(max-width:700px) { .item-batch-form { max-height:calc(90vh - 140px); } .item-entry-row .item-form-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .item-entry-row .item-field-wide { grid-column:1/-1; } }
 @media(max-width:430px) { .item-entry-row .item-form-grid { grid-template-columns:1fr; } .item-entry-row .item-field-wide { grid-column:1; } }
+
+/* V2 shared-warehouse workflow additions */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:16px 0}
+.stat-card{min-width:0;padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--card);display:grid;gap:7px}
+.stat-card span{font-size:12px;color:var(--muted)}
+.stat-card strong{font-size:21px;color:var(--text);overflow-wrap:anywhere}
+.v2-slip-line,.v2-transfer-line{display:grid;grid-template-columns:minmax(150px,2fr) minmax(95px,1fr) minmax(130px,1fr) auto;gap:8px;align-items:center;margin:9px 0}
+.v2-slip-line input,.v2-slip-line select,.v2-transfer-line input,.v2-transfer-line select{width:100%;min-width:0;min-height:39px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--text)}
+.modal-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:16px;background:rgba(15,23,42,.55)}
+.modal-card{width:min(900px,100%);max-height:90vh;overflow:auto;padding:22px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.modal-card h2{margin:0 0 16px;font-size:19px}
+.modal-card label{display:grid;gap:6px;margin:10px 0;color:var(--muted);font-size:13px;font-weight:650}
+.modal-card input,.modal-card select{width:100%;min-height:38px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--text)}
+.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:16px}
+@media(max-width:640px){.v2-slip-line,.v2-transfer-line{grid-template-columns:1fr 1fr}.v2-slip-line select,.v2-transfer-line select{grid-column:1/-1}.modal-card{padding:15px}}
